@@ -42,3 +42,102 @@ Working with asynchronous file system (FS) operations in Node.js is generally be
 4. Resource management: Asynchronous FS operations can help manage resources more efficiently by allowing the application to perform other tasks while waiting for the file system operation to complete, reducing the likelihood of resource contention and improving overall performance.
 5. User experience: Asynchronous FS operations can provide a better user experience by keeping the application responsive and preventing it from freezing or becoming unresponsive while performing file system operations.
    Overall, using asynchronous FS operations in Node.js can lead to better performance, scalability, and user experience compared to synchronous FS operations.
+
+## Importing the HTTP module
+
+const http = require("http");
+
+Creating an HTTP server
+
+const server = http.createServer((req, res) => {
+// req → incoming request object
+// res → response object
+});
+
+## Syntax breakdown:
+
+http.createServer([requestListener])
+
+requestListener → function with two parameters: (req, res)
+
+req = request object (info about method, URL, headers, body)
+
+res = response object (methods to send data back)
+
+Returns a Server object → you can call server.listen() to start listening on a port.
+
+Server listen method
+
+server.listen(port, [hostname], [callback])
+
+• port → number, e.g., 3000
+• hostname → optional, default is "localhost"
+• callback → function called when server starts
+
+server.listen(3000, () => {
+console.log("Server running on port 3000");
+});
+
+# Request object (req)
+
+req.url : The URL of the request (e.g., /, /about)
+
+req.method : HTTP method (GET, POST, etc.)
+
+req.headers : Object containing request headers
+
+req.on("data", callback) : Event: triggered for chunks of request body (POST data)
+
+req.on("end", callback) : Event: triggered when request body is fully received
+
+Response object (res)
+
+## Method Description
+
+res.writeHead(statusCode, headers) : Set HTTP status code & headers
+
+res.write(data) : Write partial response (optional)
+
+res.end([data]) : End response & optionally send final data
+
+req.method tells your server what the client wants to do with a resource.
+
+GET → read
+POST → create
+PUT → replace
+PATCH → update
+DELETE → remove
+
+HTTP status codes are used in both HTTP and HTTPS protocols to indicate whether a specific request has been successfully completed
+
+They are grouped into five classes based on their first digit.
+
+Here is a list of the standard HTTP status codes, categorized by their class:
+
+## 1xx Informational
+
+The request has been received, and the process is continuing. Common codes include 100 Continue, 101 Switching Protocols, 102 Processing (WebDAV), and 103 Early Hints.
+
+## 2xx Success
+
+These codes indicate the request was successfully received and accepted. Common examples include:
+
+200 OK: Request succeeded.
+
+201 Created: Resource created.
+
+202 Accepted: Request accepted for processing.
+
+204 No Content: Request processed, but no content is returned.
+
+206 Partial Content: Delivering a partial resource.
+
+CLIENT → SERVER : stringify
+SERVER → USE DATA : parse
+
+SERVER → CLIENT : stringify
+CLIENT → USE DATA : parse
+
+so when making or sending a request to the server, the client data is in the form of an object, but the https can only send by string or bytes, so we need to use the JSON.stringify to convert the data into a string, now the server has receive the string, but the server must convert the string to an object using the JSON.parse to convert the string to object.
+
+When the server is sending the response data to the client, we said that http can only send string / text so we need to stringify the response data, that’s converting the object to a string. Now when the client receives the response data, it need to then parse it to become and object.
