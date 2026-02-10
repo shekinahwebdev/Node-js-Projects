@@ -1,0 +1,2 @@
+Welcome to node.js course
+Node.js is a runtime for js code

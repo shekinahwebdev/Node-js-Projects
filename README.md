@@ -31,3 +31,14 @@ function(exports, require, module, **filename, **dirname) {
 }
 
 The module wrapper function is a function that wraps the code of each module in Node.js. It provides a local scope for the module's variables and functions, preventing them from polluting the global scope. The wrapper function takes several parameters, including `exports`, `require`, `module`, `__filename`, and `__dirname`.
+
+## WHY WORKING WITH ASYNC FS IS BETTER THAN SYNC FS
+
+Working with asynchronous file system (FS) operations in Node.js is generally better than synchronous FS operations for several reasons:
+
+1. Non-blocking: Asynchronous FS operations do not block the event loop, allowing other tasks to continue executing while waiting for the file system operation to complete. This can improve the overall performance and responsiveness of your application.
+2. Scalability: Asynchronous FS operations can handle multiple requests simultaneously without blocking, making it more suitable for applications that require high concurrency and scalability.
+3. Error handling: Asynchronous FS operations typically use callbacks or promises to handle errors, allowing for better error handling and more robust code. In contrast, synchronous FS operations can throw exceptions that may crash the application if not properly handled.
+4. Resource management: Asynchronous FS operations can help manage resources more efficiently by allowing the application to perform other tasks while waiting for the file system operation to complete, reducing the likelihood of resource contention and improving overall performance.
+5. User experience: Asynchronous FS operations can provide a better user experience by keeping the application responsive and preventing it from freezing or becoming unresponsive while performing file system operations.
+   Overall, using asynchronous FS operations in Node.js can lead to better performance, scalability, and user experience compared to synchronous FS operations.
