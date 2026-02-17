@@ -6,6 +6,8 @@ require("dotenv").config({
 
 const server = http.createServer(app);
 
-server.listen(process.env.PORT, () => {
-  console.log("Server is listening at port 3000");
-});
+// server.listen(process.env.PORT, () => {
+//   console.log("Server is listening at port 5003");
+// });
+
+module.exports = server;

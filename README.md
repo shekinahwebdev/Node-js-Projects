@@ -142,6 +142,10 @@ so when making or sending a request to the server, the client data is in the for
 
 When the server is sending the response data to the client, we said that http can only send string / text so we need to stringify the response data, that’s converting the object to a string. Now when the client receives the response data, it need to then parse it to become and object.
 
+## RATE LIMITER
+
+A rate limiter is a mechanism that limits the number of requests a client can make to a server within a specified time frame. This is often used to prevent abuse and ensure fair usage of resources. A rate limiter can be implemented using various algorithms, such as token bucket or leaky bucket, and can be applied at different levels, such as per IP address, per user, or globally for all clients.
+
 ## I BUILT NODE.JS API ENGINE TO UNDERSTAND EXPRESS.JS BETTER
 
 I built a simple Node.js API engine to understand how Express.js works under the hood. This API engine allows me to handle HTTP requests and responses, route requests to different endpoints, and manage middleware functions.
